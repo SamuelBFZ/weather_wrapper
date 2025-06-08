@@ -10,7 +10,20 @@ async def get_location(ip: str):
     location = await get_location_by_ip(ip)
     return location
 
-@router.get("/weather/{ip}")# get the weather by location
-async def get_weather(lat: float, lon: float):
-    weather = await get_weather_by_location(lat, lon)
-    return weather
+@router.get("/weather/{ip}")
+async def get_weather(ip: str):
+    # Get location data
+    location = await get_location_by_ip(ip)
+    
+    # Extract coordinates from location data
+    lat = location["location"]["lat"]
+    lng = location["location"]["lng"]
+    
+    # Get weather data
+    weather = await get_weather_by_location(lat, lng)
+    
+    # Return combined data
+    return {
+        "location": location["location"],
+        "weather": weather
+    }

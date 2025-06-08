@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather API</h1>
+        </header>
+        
+        <main>
+            <section class="ip-lookup">
+                <h2>IP Weather Lookup</h2>
+                <div class="input-group">
+                    <input type="text" id="ipInput" placeholder="Enter IP address (e.g., 8.8.8.8)">
+                    <button onclick="getWeatherByIP()">Get Weather</button>
+                </div>
+                <div id="weatherResult" class="result-container"></div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html> 
